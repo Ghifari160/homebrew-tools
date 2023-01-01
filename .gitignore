@@ -1,0 +1,21 @@
+# OS-specific ignores
+## Windows
+Thumbs.db
+
+## macOS
+.DS_Store
+
+## Linux
+lost+found
+
+# IDE-specific ignores
+## Visual Studio Code
+.vscode
+
+# Stack-specific ignores
+
+
+# Project-specific ignores
+*.tar.gz
+*.tgz
+*.zip
