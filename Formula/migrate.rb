@@ -2,20 +2,20 @@ class Migrate < Formula
     desc "Migrate is a file migration tool"
     homepage "https://github.com/ghifari160/migrate"
     license "MIT"
-    version "0.1.0"
+    version "0.2.0"
 
     on_macos do
-        url "https://projects.gassets.space/migrate/v0.1.0/migrate-macos-v0.1.0.tar.gz"
-        sha256 "c3da4ba5282d2d31603dcd328a484a3f621f4f43a9a91c3f34d34ef595ae6bdb"
+        url "https://projects.gassets.space/migrate/v0.2.0/migrate-macos.tar.gz"
+        sha256 "5fdba684d39b787e6516f43859c46fe375822826b9ca7253a4dc85d0ed5eb548"
     end
 
     on_linux do
-        url "https://projects.gassets.space/migrate/v0.1.0/migrate-linux_386-v0.1.0.tar.gz"
-        sha256 "f0a4843fd8868802b9f4407162a76efe00363817931dfe58c86b450e8c2fe94a"
+        url "https://projects.gassets.space/migrate/v0.2.0/migrate-linux_x86.tar.gz"
+        sha256 "c2b3fec3397002133761e87b867a2a5b8ce6d34f891f35503687acd965ac6b48"
 
         on_arm do
-            url "https://projects.gassets.space/migrate/v0.1.0/migrate-linux_arm-v0.1.0.tar.gz"
-            sha256 "fdb59e622c27fdd872b72efa573d0bcc5bac149af3624d3d6cf4dbf5c00e711d"
+            url "https://projects.gassets.space/migrate/v0.2.0/migrate-linux_arm.tar.gz"
+            sha256 "05d12c36efca1388b95ad87fb0aa5d56da429473d27f1fe7ee7c928c360a99d8"
         end
     end
 
@@ -24,6 +24,11 @@ class Migrate < Formula
     end
 
     test do
-        system bin/"migrate", "-version"
+        (testpath/"input/payload.txt").write <<~EOS
+            Test file
+        EOS
+
+        system bin/"migrate", "generate", "input", "output"
+        assert_equal "input/payload.txt;#{(testpath/"output")}\n", shell_output("cat manifest.txt")
     end
 end
