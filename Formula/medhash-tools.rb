@@ -9,6 +9,14 @@ class MedhashTools < Formula
 
     depends_on "go" => :build
 
+    bottle do
+        root_url "https://bottles.gassets.space/tools"
+        sha256 cellar: :any_skip_relocation, ventura:      "47b83a4fe0e6fb7fa171be8e309b28fe87a66386bed5cbdf7b6eee78f46fde6f"
+        sha256 cellar: :any_skip_relocation, monterey:     "47b83a4fe0e6fb7fa171be8e309b28fe87a66386bed5cbdf7b6eee78f46fde6f"
+        sha256 cellar: :any_skip_relocation, big_sur:      "47b83a4fe0e6fb7fa171be8e309b28fe87a66386bed5cbdf7b6eee78f46fde6f"
+        sha256 cellar: :any_skip_relocation, x86_64_linux: "c084b5b4f7a0bc821d22ab879d6f79fdea477330ccaa8b49353cc455d8054b89"
+    end
+
     def install
         ldflags = %W[
             -s -w
