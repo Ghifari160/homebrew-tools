@@ -10,9 +10,11 @@ class MedhashTools < Formula
     depends_on "go" => :build
 
     def install
-        system "go", "build", "."
+        ldflags = %W[
+            -s -w
+        ]
 
-        bin.install "medhash-tools" => "medhash"
+        system "go", "build", *std_go_args(output: "#{bin}/medhash", ldflags: ldflags), "."
     end
 
     test do
