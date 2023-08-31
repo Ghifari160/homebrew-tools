@@ -1,20 +1,20 @@
 class MedhashTools < Formula
     desc "Simple tools for verifying media file integrity."
     homepage "https://github.com/Ghifari160/medhash-tools"
-    url "https://github.com/Ghifari160/medhash-tools/archive/0.6.0.tar.gz"
-    sha256 "91a24fb362903efb9fc4b1658c4d8d1de3042399f54a7b66ec8d44fe5d27ccab"
+    url "https://github.com/Ghifari160/medhash-tools/archive/0.6.1.tar.gz"
+    sha256 "1a4e5f8ea1fa6e1325930f9b165aeff7be15ce3ef4f5ab7bf621890f0801c436"
     license "MIT"
-    version "0.6.0"
+    version "0.6.1"
     head "https://github.com/Ghifari160/medhash-tools.git", branch: "main"
 
     depends_on "go" => :build
 
     bottle do
         root_url "https://bottles.gassets.space/tools"
-        sha256 cellar: :any_skip_relocation, ventura:      "47b83a4fe0e6fb7fa171be8e309b28fe87a66386bed5cbdf7b6eee78f46fde6f"
-        sha256 cellar: :any_skip_relocation, monterey:     "47b83a4fe0e6fb7fa171be8e309b28fe87a66386bed5cbdf7b6eee78f46fde6f"
-        sha256 cellar: :any_skip_relocation, big_sur:      "47b83a4fe0e6fb7fa171be8e309b28fe87a66386bed5cbdf7b6eee78f46fde6f"
-        sha256 cellar: :any_skip_relocation, x86_64_linux: "c084b5b4f7a0bc821d22ab879d6f79fdea477330ccaa8b49353cc455d8054b89"
+        sha256 cellar: :any_skip_relocation, ventura:      "2e4b58d00e2fdd2912f02f9edcffdc699ec29c62f906831c9aea5d64db90f0aa"
+        sha256 cellar: :any_skip_relocation, monterey:     "2e4b58d00e2fdd2912f02f9edcffdc699ec29c62f906831c9aea5d64db90f0aa"
+        sha256 cellar: :any_skip_relocation, big_sur:      "2e4b58d00e2fdd2912f02f9edcffdc699ec29c62f906831c9aea5d64db90f0aa"
+        sha256 cellar: :any_skip_relocation, x86_64_linux: "a76a5677e104a160a5ac617546fa7bae357b5dc6dbe826f4acaf24d8ccba8a74"
     end
 
     def install
@@ -26,6 +26,6 @@ class MedhashTools < Formula
     end
 
     test do
-        assert_match "MedHash Tools #{version}", shell_output("#{bin}/medhash-tools version")
+        assert_match "MedHash Tools #{version}", shell_output("#{bin}/medhash version")
     end
 end
